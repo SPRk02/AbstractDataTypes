@@ -22,6 +22,10 @@ public class IntegerSet {
      */
     public void CheckRep() {
         for (int i = 0; i < Numbers.size() - 1; i++) {
+            if (Numbers == null) {
+                throw new RuntimeException("Rep invariant violated!");
+            }
+            
             if (Numbers.get(i) >= Numbers.get(i+1)) {
                 throw new RuntimeException("Rep invariant violated!");
             }
@@ -33,9 +37,6 @@ public class IntegerSet {
      * @param x ตัวเลขที่ต้องการเพิ่ม
      */
     public void add(Integer x) {
-        if (x == null) {
-        throw new RuntimeException("Rep invariant violated!");
-    }
         if (!this.contains(x)) {
             int i = 0 ;
             while (i < Numbers.size() && Numbers.get(i) < x) {
